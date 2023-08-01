@@ -12,7 +12,7 @@ export const Navbar = () => {
 			
 				<a className="nav-link" href="/characters">Characters</a>
 			
-				<a className="nav-link" href="#">Planets</a>
+				<a className="nav-link" href="/planets">Planets</a>
 			
 				<a className="nav-link" href="#">Vehicles</a>
 

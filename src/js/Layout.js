@@ -10,11 +10,14 @@ import { UserDetails } from "./views/UserDetails.jsx";
 import { Posts } from "./views/Posts.jsx";
 import { ViewCharacters } from "./views/ViewCharacters.jsx";
 import { Characters } from "./views/Characters.jsx";
+import { Planets } from "./views/Planets.jsx";
+import { ViewPlanet } from "./views/ViewPlanet.jsx";
 
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/Navbar";
 import { Footer } from "./component/Footer";
+
 
 
 //create your first component
@@ -35,6 +38,8 @@ const Layout = () => {
 						<Route path="/posts" element={<Posts/>} />
 						<Route path="/viewcharacter" element={<ViewCharacters/>}/>
 						<Route path="/characters/" element={<Characters />} />
+						<Route path="/planets/" element={<Planets />} />
+						<Route path="/viewplanet/" element={<ViewPlanet />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />

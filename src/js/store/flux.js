@@ -1,31 +1,12 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
 			favorites: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
+
+			// Justo aqui es donde se van a definir todos los fecht (funciones) a utilizar, que a su vez modificaran las variables en demo
+			//luego llamare y ejecutare estas funciones en el useEffect del appContext
 
 			getUsers: async () => {
 				// 1. Verifico si tengo los usersLocal en el localStorage
@@ -52,8 +33,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const request = {
 						method: "GET"
 					}
-					const response = await fetch(url, request)
 					if (response.ok) {
+						const response = await fetch(url, request)
 						const data = await response.json();
 						// setPosts(data)
 						localStorage.setItem("postsLocal", JSON.stringify(data))
@@ -66,6 +47,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("error: ", response.status, response.statusText);
 					}
 				}
+			},
+
+			getPeople: async () => {
+				if (localStorage.getItem("peopleLocal") === null) {
+					const host = "https://www.swapi.tech/api";
+					const url = host + '/people/';
+					const request = {
+						method: "GET",
+						rediret: "follow"
+					}
+					const response = await fetch(url, request);
+					console.log(response);
+					if (response.ok) {
+						const dataPeople = await response.json();
+						localStorage.setItem("peopleLocal", JSON.stringify(dataPeople));
+					} else {
+						console.log("Error: ", response.status, response.statusText);
+					}
+				};
 			},
 
 			changeColor: (index, color) => {

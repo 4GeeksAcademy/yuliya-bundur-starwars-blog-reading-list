@@ -29,12 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPosts: async () => {
 				if (localStorage.getItem('postsLocal') === null) {
-					const url = "https://jsonplaceholder.typicode.com/posts/"
-					const request = {
-						method: "GET"
-					}
+					const response = await fetch ("https://jsonplaceholder.typicode.com/posts/")
 					if (response.ok) {
-						const response = await fetch(url, request)
+						// const response = await fetch(url, request)
 						const data = await response.json();
 						// setPosts(data)
 						localStorage.setItem("postsLocal", JSON.stringify(data))

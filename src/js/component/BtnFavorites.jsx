@@ -1,10 +1,14 @@
 import React from "react";
 
 
+
+
 export const BtnFavorites = () => {
 
-  let myFavorites = [{id:"My favorite"}];
+
+  const myFavorites = [{id:"My favorite"}];
   // let myFovorites = store.favorites;   // definido en flux
+
 
   return (
     <div className="dropdown ml-auto" style={{ marginRight: "20px" }}>
@@ -12,7 +16,7 @@ export const BtnFavorites = () => {
         Favorites  
         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
           {myFavorites.length}
-          
+         
         </span>
       </button>
       <ul className="dropdown-menu dropdown-menu-dark dropdown-menu-end">
@@ -33,3 +37,4 @@ export const BtnFavorites = () => {
     </div>
   );
 };
+

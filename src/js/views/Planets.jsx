@@ -49,7 +49,7 @@ export const Planets = () => {
                                                 <p className="card-text">{planets.name}.</p>
                                                 <div className="footerPlanets">
                                                     <Link to={`/planets/${planets.uid}`}>
-                                                        <button className="btn btn-secondary" onClick={() => fetchPlanetsDetails(planets.url)}>
+                                                        <button className="btn btn-secondary" onClick={() => fetchViewPlanet(planets.url)}>
                                                             Get Details
                                                         </button>
                                                     </Link>

@@ -39,20 +39,20 @@ export const Characters = () => {
                     <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                         {!characters ? "Loading"
                             :
-                            (characters.map((character, uid) => (
+                            (characters.map((characters, uid) => (
                                 <div className="col" key={uid}>
                                     <div className="p-3">
                                         <div className="card" >
                                                 <img alt="" src={`https://starwars-visualguide.com/assets/img/characters/${uid+1}.jpg`} onError={handleOnErrorImg} />
                                             <div className="card-body">
-                                                <p className="card-text">{character.name}.</p>
+                                                <p className="card-text">{characters.name}.</p>
                                                 <div className="footerCharacter"> 
-                                                    <Link to={`/characters/${character.uid}`}>
-                                                        <button className="btn btn-secondary" onClick={() => fetchCharacterDetails(character.url)}>
+                                                    <Link to={`/characters/${characters.uid}`}>
+                                                        <button className="btn btn-secondary" onClick={() => fetchCharacterDetails(characters.url)}>
                                                             Get Details
                                                         </button>
                                                     </Link>
-                                                    <button className="btn btn-danger" onClick={() => {actions.addFavorites(character.name)}} type="button">
+                                                    <button className="btn btn-danger" onClick={() => {actions.addFavorites(characters.name)}} type="button">
                                                         <i className="fas fa-heart"></i>
                                                     </button>
                                                 </div>

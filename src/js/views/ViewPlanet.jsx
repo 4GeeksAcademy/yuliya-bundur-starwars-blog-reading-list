@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useParams } from "react";
 import { Context } from "../store/appContext";
 import { Spinner } from "../component/Spinner.jsx";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ export const ViewPlanet = () => {
         console.log(params);
     const uid = parseInt(params.planetId) - 1;
         console.log(uid)
-    const viewString = JSON.parse(localStorage.getItem("dataWorlds"));
+    const viewString = JSON.parse(localStorage.getItem("dataViewPlanet"));
         console.log(viewString);
 
     if (!viewString || viewString.length === 0 || uid < 0 || uid >= viewString.length) {

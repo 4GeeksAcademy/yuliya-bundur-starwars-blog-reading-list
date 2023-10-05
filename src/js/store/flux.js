@@ -103,6 +103,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 			},
 
+			getViewPlanet: async () => {
+				if (localStorage.getItem("viewPlanetLocal") === null) {
+					const host = "https://www.swapi.tech/api";
+					const url = host + '/planets/1';
+					const request = {
+						method: "GET",
+						rediret: "follow"
+					}
+					const response = await fetch(url, request);
+					console.log(response);
+					if (response.ok) {
+						const dataViewPlanet = await response.json();
+						localStorage.setItem("viewplanetLocal", JSON.stringify(dataViewPlanet));
+					} else {
+						console.log("Error: ", response.status, response.statusText);
+					}
+				};
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

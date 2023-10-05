@@ -37,10 +37,10 @@ const Layout = () => {
 						<Route path="/users" element={<Users/>} />
 						<Route path="/users/:userId" element={<UserDetails/>}/>
 						<Route path="/posts" element={<Posts/>} />
-						<Route path="/viewcharacter" element={<ViewCharacters/>}/>
+						<Route path="/viewcharacters" element={<ViewCharacters/>}/>
 						<Route path="/characters/" element={<Characters />} />
 						<Route path="/planets/" element={<Planets />} />
-						<Route path="/viewplanet/" element={<ViewPlanet />} />
+						<Route path="/view-planet/" element={<ViewPlanet />} />
 						<Route path="/vehicles/" element={<Vehicles />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />

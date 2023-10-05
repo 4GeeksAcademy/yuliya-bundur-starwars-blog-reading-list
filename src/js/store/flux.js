@@ -65,6 +65,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 			},
 
+			getVehicles: async () => {
+				if (localStorage.getItem("vehiclesLocal") === null) {
+					const host = "https://www.swapi.tech/api";
+					const url = host + '/vehicles/';
+					const request = {
+						method: "GET",
+						rediret: "follow"
+					}
+					const response = await fetch(url, request);
+					console.log(response);
+					if (response.ok) {
+						const dataVehicles = await response.json();
+						localStorage.setItem("vehiclesLocal", JSON.stringify(dataVehicles));
+					} else {
+						console.log("Error: ", response.status, response.statusText);
+					}
+				};
+			},
+
 			getWorlds: async () => {
 				if (localStorage.getItem("worldsLocal") === null) {
 					const host = "https://www.swapi.tech/api";

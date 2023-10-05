@@ -12,6 +12,7 @@ import { ViewCharacters } from "./views/ViewCharacters.jsx";
 import { Characters } from "./views/Characters.jsx";
 import { Planets } from "./views/Planets.jsx";
 import { ViewPlanet } from "./views/ViewPlanet.jsx";
+import { Vehicles } from "./views/Vehicles.jsx";
 
 import injectContext from "./store/appContext";
 
@@ -40,6 +41,7 @@ const Layout = () => {
 						<Route path="/characters/" element={<Characters />} />
 						<Route path="/planets/" element={<Planets />} />
 						<Route path="/viewplanet/" element={<ViewPlanet />} />
+						<Route path="/vehicles/" element={<Vehicles />} />
 						<Route path="/demo" element={<Demo />} />
 						<Route path="/single/:theid" element={<Single />} />
 						<Route path="*" element={<h1>Not found!</h1>} />

@@ -14,7 +14,7 @@ export const Navbar = () => {
 			
 				<a className="nav-link" href="/planets">Planets</a>
 			
-				<a className="nav-link" href="#">Vehicles</a>
+				<a className="nav-link" href="/vehicles">Vehicles</a>
 
 				<a className="nav-link" href="/posts">Posts</a>
 		

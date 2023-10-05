@@ -13,19 +13,19 @@ export const Planets = () => {
     
         // Obtiene los datos del localStorage y los establece en el estado 
             
-        const worldsLocalData = JSON.parse(localStorage.getItem("worldsLocal"));
-        setPlanets(worldsLocalData.results);
+        const planetsLocalData = JSON.parse(localStorage.getItem("planetsLocal"));
+        setPlanets(planetsLocalData.results);
         }, []);
 
-        const fetchPlanetDetails = async (url) => {
+        const fetchPlanetsDetails = async (url) => {
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
                 }
             
-                const dataWorlds = await response.json();
-                console.log("Planet details:", dataWorlds);
+                const dataPlanets = await response.json();
+                console.log("Planet details:", dataPlanets);
             } catch (error) {
                 console.error("Error fetching planet details:", error);
         }
@@ -44,16 +44,16 @@ export const Planets = () => {
                                 <div className="col" key={uid}>
                                     <div className="p-3">
                                         <div className="card" >
-                                                <img src={`https://starwars-visualguide.com/assets/img/planetss/${uid+1}.jpg`} onError={handleOnErrorImg} />
+                                                <img src={`https://starwars-visualguide.com/assets/img/planets/${uid+1}.jpg`} onError={handleOnErrorImg} />
                                             <div className="card-body">
-                                                <p className="card-text">{planet.name}.</p>
+                                                <p className="card-text">{planets.name}.</p>
                                                 <div className="footerPlanets">
-                                                    <Link to={`/planets/${planet.uid}`}>
-                                                        <button className="btn btn-secondary" onClick={() => fetchPlanetDetails(planet.url)}>
+                                                    <Link to={`/planets/${planets.uid}`}>
+                                                        <button className="btn btn-secondary" onClick={() => fetchPlanetsDetails(planets.url)}>
                                                             Get Details
                                                         </button>
                                                     </Link>
-                                                    <button className="btn btn-danger" onClick={() => {actions.addFavorites(planet.name)}} type="button">
+                                                    <button className="btn btn-danger" onClick={() => {actions.addFavorites(planets.name)}} type="button">
                                                         <i className="fas fa-heart"></i>
                                                     </button>
                                                 </div>

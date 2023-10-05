@@ -84,8 +84,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 			},
 
-			getWorlds: async () => {
-				if (localStorage.getItem("worldsLocal") === null) {
+			getPlanets: async () => {
+				if (localStorage.getItem("planetsLocal") === null) {
 					const host = "https://www.swapi.tech/api";
 					const url = host + '/planets/';
 					const request = {
@@ -95,8 +95,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(url, request);
 					console.log(response);
 					if (response.ok) {
-						const dataWorlds = await response.json();
-						localStorage.setItem("worldsLocal", JSON.stringify(dataWorlds));
+						const dataPlanets = await response.json();
+						localStorage.setItem("planetsLocal", JSON.stringify(dataPlanets));
 					} else {
 						console.log("Error: ", response.status, response.statusText);
 					}

@@ -39,7 +39,7 @@ export const Vehicles = () => {
                     <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                         {!vehicles ? "Loading"
                             :
-                            (vehicles.map((character, uid) => (
+                            (vehicles.map((vehicles, uid) => (
                                 <div className="col" key={uid}>
                                     <div className="p-3">
                                         <div className="card" >
